@@ -1,0 +1,12 @@
+.search{
+   
+    margin-right: 80px;
+
+    }
+.search-bar{
+    width: 450px;
+    border-radius: 1;
+}
+.btn-search{
+    width: fit-content;
+}

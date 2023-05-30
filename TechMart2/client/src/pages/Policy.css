@@ -1,0 +1,14 @@
+.policy-heading{
+    text-align: center;
+    color: #3a174fe3;
+    font-weight: bolder;
+    font-size: xx-large;
+}
+.policy-details{
+    text-align: justify;
+    color: #333333e3;
+    font-size: small;
+}
+.poppins{
+    font-family: "Poppins", sans-serif;
+}

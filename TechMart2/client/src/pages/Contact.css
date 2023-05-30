@@ -1,0 +1,55 @@
+.contact-heading{
+    font-size: xx-large;
+    font-weight: bolder;
+    color: #3a174f;
+    font-family: "Poppins", sans-serif;
+}
+.contact{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #3a174f34;
+    padding: 78px;
+    
+}
+.message{
+    display: flex;
+    flex-direction: column;
+    align-items: right;
+    justify-content: center;
+    padding-left: 9%;
+    margin-bottom: 100px;
+}
+.message-heading{
+    font-size: 35px;
+    color: #3a174f;
+    font-weight: 900;
+}
+.icon-address{
+    background-color: #3a174f3f;
+    border-radius: 50%;
+    padding: 10px;
+}
+.icon-phone{
+    background-color: #3a174f3f;
+    border-radius: 50%;
+    padding: 14px;
+}
+.icon-email{
+    background-color: #3a174f3f;
+    border-radius: 50%;
+    padding: 12px;
+}
+.poppins{
+    font-family: "Poppins", sans-serif;
+}
+.icon-heading{
+    font-weight:600;
+    color: rgb(77, 77, 77);
+    text-transform: uppercase;
+}
+.details{
+    color: rgb(92, 92, 92);
+    text-align: justify;
+}

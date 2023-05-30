@@ -1,0 +1,35 @@
+.cats{
+    text-decoration: none;
+    color: rgb(255, 254, 252);
+}
+.btn-reset{
+    background-color: rgba(240, 248, 255, 0);
+    border: 0in;
+    color: #3a174f;
+    font-weight: bold;
+}
+.btn-reset:hover{
+    background-color: rgba(240, 248, 255, 0);
+    border: 0in;
+    color: #3a174fa6;
+    font-weight: bold;
+}
+.btn-details{
+    height: fit-content;
+}
+.bg-img{
+    background-image: url('./Auth/Images/Untitled design (1).png');
+  background-size:cover; /* Adjust as needed */
+  background-position: center; /* Adjust as needed */
+}
+.btn-auth{
+    width:max-content;
+    height: fit-content;
+}
+.bg-light-purple{
+    background-color: #3a174f2f;
+    border-radius: 20px;
+}
+.text-purple{
+    color: #3a174f;
+}
