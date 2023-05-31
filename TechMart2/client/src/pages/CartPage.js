@@ -55,25 +55,58 @@ const CartPage = () => {
   }, [auth?.token]);
 
   //handle payment
-  const handlePayment = async () => {
-    try {
-      setLoading(true);
-      const { nonce } = await instance.requestPaymentMethod();
-      console.log("🚀 ~ file: CartPage.js:66 ~ handlePayment ~ cart:", cart);
-      const { data } = await axios.post("/api/v1/product/braintree/payment", {
-        nonce,
-        cart,
-      });
-      setLoading(false);
-      localStorage.removeItem("cart");
-      setCart([]);
-      navigate("/dashboard/user/orders");
-      toast.success("Payment Complete Successfully");
-    } catch (error) {
-      console.log(error);
-      setLoading(false);
-    }
-  };
+  // const handlePayment = async () => {
+  //   try {
+  //     setLoading(true);
+  //     const { nonce } = await instance.requestPaymentMethod();
+  //     console.log("🚀 ~ file: CartPage.js:66 ~ handlePayment ~ cart:", cart);
+  //     const { data } = await axios.post("/api/v1/product/braintree/payment", {
+  //       nonce,
+  //       cart,
+  //     });
+  //     setLoading(false);
+  //     localStorage.removeItem("cart");
+  //     setCart([]);
+  //     navigate("/dashboard/user/orders");
+  //     toast.success("Payment Complete Successfully");
+  //   } catch (error) {
+  //     console.log(error);
+  //     setLoading(false);
+  //   }
+  // };
+
+  // handle payment
+const handlePayment = async () => {
+  try {
+    setLoading(true);
+
+    // Simulate a successful payment
+    const nonce = 'demo-nonce';
+    const paymentResult = {
+      success: true,
+      transactionId: 'demo-transaction-id',
+      amount: totalPrice(),
+      currency: 'USD',
+    };
+
+    // Save the order
+    const { data } = await axios.post("/api/v1/product/braintree/payment", {
+      payment: paymentResult,
+      cart,
+    });
+
+    setLoading(false);
+    localStorage.removeItem("cart");
+    setCart([]);
+    navigate("/dashboard/user/orders");
+    toast.success("Order Placed Successfully");
+  } catch (error) {
+    console.log(error);
+    setLoading(false);
+    toast.error("Failed to place order");
+  }
+};
+
 
   return (
     <Layout>
@@ -193,3 +226,4 @@ const CartPage = () => {
 };
 
 export default CartPage;
+

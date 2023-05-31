@@ -57,6 +57,26 @@ const ProductDetails = () => {
           <h6>Category : {product?.category?.name}</h6>
           <button class="btn btn-secondary ms-1">ADD TO CART</button>
         </div>
+        <div>
+        <h5>Comments</h5>
+        {product?.reviews?.length > 0 ? (
+  product.reviews.map((review) => (
+    <div key={review._id}>
+      <div style={{ marginBottom: '10px' }}><strong > {review.userName}: </strong>{review.comment}</div>
+      <div>
+        <strong style={{color:'gray'}}>Rating: </strong>
+        <i style={{color:'gray'}}> {review.rating} out of 5 </i> 
+      </div>
+      <hr style={{ marginTop: '20px', marginBottom: '20px' }} />
+    </div>
+  ))
+) : (
+  <div>No comments</div>
+)}
+
+
+
+        </div>
       </div>
       <hr />
       <div className="row container similar-products">

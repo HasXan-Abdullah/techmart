@@ -15,9 +15,11 @@ import {
   productPhotoController,
   relatedProductController,
   searchProductController,
+  submitReview,
   updateProductController,
 } from "../controllers/productController.js";
 import formidable from "express-formidable";
+import orderModel from "../models/orderModel.js";
 
 const router = express.Router();
 
@@ -78,5 +80,8 @@ router.get("/braintree/token", braintreeTokenController);
 
 //payments
 router.post("/braintree/payment", requireSignin, braintreePaymentController);
+
+//submit review
+router.post("/submit-review/:orderId", requireSignin, submitReview);
 
 export default router;

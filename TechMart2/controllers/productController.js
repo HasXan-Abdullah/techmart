@@ -396,3 +396,57 @@ export const braintreePaymentController = async (req, res) => {
     console.log(error);
   }
 };
+
+
+//submit review
+export const submitReview = async (req, res) => {
+  try {
+    const { orderId } = req.params;
+    const { userName,userId, productId, rating, comment } = req.body;
+
+    const order = await orderModel.findById(orderId);
+console.log(order)
+    if (!order) {
+      return res.status(404).json({
+        success: false,
+        message: "Order not found",
+      });
+    }
+    console.log(productId)
+//.find((prod) => prod.toString() === productId);
+    const product = await productModel.findById(productId);
+
+    if (!product) {
+      return res.status(404).json({
+        success: false,
+        message: "Product not found",
+      });
+    }
+
+    const review = {
+      productId,
+      userName,
+      userId,
+      rating,
+      comment,
+    };
+
+    product.reviews.push(review);
+    order.reviews.push(review);
+
+    await order.save();
+    await product.save();
+
+    res.status(200).json({
+      success: true,
+      message: "Review submitted successfully",
+      product,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      success: false,
+      message: "Failed to submit review",
+    });
+  }
+};
